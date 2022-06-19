@@ -24,9 +24,16 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
 	@Override
 	@Transactional
-	public Usuario updateUser(Usuario usuario) {
-		
-		return repository.save(usuario);
+	public Usuario updateUser(Usuario usuario, Long id) {
+		Usuario usuBd = repository.getById(id);
+		if (usuBd != null) {
+			usuBd.setIdentificacion(usuario.getIdentificacion());
+			usuBd.setNombre(usuario.getNombre());
+			usuBd.setTelefono(usuario.getTelefono());
+		}else {
+			throw new UsuarioExceptions("ERROR, no existe el usuario");
+		}
+		return repository.save(usuBd);
 	}
 
 	@Override

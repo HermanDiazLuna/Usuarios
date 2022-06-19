@@ -17,6 +17,19 @@ public class Usuario {
 	private String telefono;
 	private String nombre;
 	
+	
+	public Usuario() {
+	
+	}
+
+	public Usuario(Long id, String identificacion, String telefono, String nombre) {
+		this.id = id;
+		this.identificacion = identificacion;
+		this.telefono = telefono;
+		this.nombre = nombre;
+	}
+	
+	
 	public Long getId() {
 		return id;
 	}

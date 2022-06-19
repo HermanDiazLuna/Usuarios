@@ -27,9 +27,9 @@ public class UsuarioController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(service.newUser(usuario));
 	}
 
-	@PutMapping("/updateUser")
-	public ResponseEntity<?> updateUser(@RequestBody Usuario usuario) {
-		return ResponseEntity.ok().body(service.updateUser(usuario));
+	@PutMapping("/updateUser/{id}")
+	public ResponseEntity<?> updateUser(@RequestBody Usuario usuario,@PathVariable Long id) {
+		return ResponseEntity.ok().body(service.updateUser(usuario, id));
 	}
 
 	@GetMapping("/getByUser/{id}")
